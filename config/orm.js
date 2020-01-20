@@ -10,14 +10,14 @@ var orm = {
     },
     // not 100% on this one...
     insertOne: function(table, nameCol, booCol) {
-        var queryString = 'INSERT INTO TABLE ?? (??, ??)';
+        var queryString = 'INSERT INTO ?? (??, ??)';
         connection.query(queryString, [table, nameCol, booCol], function(err, res) {
             if (err) throw err;
             console.log(res);
         });
     },
     // this is probably wrong!!
-    updateOne: function(table, thisCol, thisVal, table, thisCol, thisVal) {
+    updateOne: function(table, nameCol, newVal, prevtable, thisCol, thisVal) {
         var queryString = 'UPDATE ?? SET ?? = ? WHERE ??.?? = ?';
         connection.query(queryString, [], function(err, res) {
             if (err) throw err;
