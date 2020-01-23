@@ -5,8 +5,9 @@
 <ul>
   {{#each burger}}
     {{#unless devoured}}
-        <div class="burgerText">{{id}}. {{burger_name}}</div>
-        <button class="eatem btn btn-light" id="{{id}}" value="{{id}}">Devour!</button>    {{/unless}}
+        <div class="burgerText">{{id}}.{{burger_name}}</div>
+        <button class="eatem" id="{{id}}" value="{{id}}">Devour!</button>
+    {{/unless}}
   {{/each}}
 </ul>
 
@@ -15,7 +16,7 @@
 <ul>
   {{#each burger}}
     {{#if devoured}}
-      <div class="burgerText">{{id}}. {{burger_name}}</div>
+      <div class="burgerText">{{id}}.{{burger_name}}</div>
     {{/if}}
   {{/each}}
 </ul>
@@ -30,8 +31,8 @@
 
   <div class="form-group">
     <label for="eat">Eat now or wait?</label><br>
-    <input type="radio" name="devourerer" value="1" checked> Eat Me!<br>
-    <input type="radio" name="devourerer" value="0"> Still chewing!
+    <input type="radio" name="devoured" value="1" checked> Eat Me!<br>
+    <input type="radio" name="devoured" value="0"> Still chewing!
   </div>
 
   <button type="submit">Add Burger</button>
