@@ -13,6 +13,7 @@ var orm = {
         var queryString = `INSERT INTO ${table} (${cols}, ${vals})`;
         connection.query(queryString, function(err, res) {
             if (err) throw err;
+            console.log(res);
             cb(res);
         });
     },
@@ -22,6 +23,7 @@ var orm = {
         var queryString = `UPDATE ${table} SET ${sqld} WHERE ${condition}`;
         connection.query(queryString, function(err, res) {
             if (err) throw err;
+            console.log(res);
             cb(res);
         });
     }
