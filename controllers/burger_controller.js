@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burger", function(req, res) {
-    burger.insertOne(["burger_name", "devoured"], [req.bidy.burger_name, req.body.devoured], function(req, res) {
+    burger.insertOne(["burger_name", "devoured"], [req.body.burger_name, req.body.devoured], function(req, res) {
         res.json({ id: res.insertId });
     });
 });
