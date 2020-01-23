@@ -3,19 +3,19 @@
 <h2>Burgers to eat</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each burger}}
     {{#unless devoured}}
-        <div class="burgerText">{{id}}. {{ burger_name}}</div>
-        <button class="food btn btn-light" id="{{id}}" value="{{id}}">Devour!</button>    {{/unless}}
+        <div class="burgerText">{{id}}. {{burger_name}}</div>
+        <button class="eatem btn btn-light" id="{{id}}" value="{{id}}">Devour!</button>    {{/unless}}
   {{/each}}
 </ul>
 
 <h2>Burgers that were eaten</h2>
 
 <ul>
-  {{#each burgers}}
+  {{#each burger}}
     {{#if devoured}}
-      <div class="burgerText">{{id}}. {{ burger_name}}</div>
+      <div class="burgerText">{{id}}. {{burger_name}}</div>
     {{/if}}
   {{/each}}
 </ul>
