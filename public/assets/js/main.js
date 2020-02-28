@@ -3,7 +3,7 @@ $(function() {
       event.preventDefault();
       let newBurger = { name: $("#burger").val(), devoured: false };
       console.log(newBurger);
-      $.ajax('/api/burger', {
+      $.ajax('/api/burgers', {
         type: "POST",
         data: newBurger
       }).then(function() {
@@ -14,7 +14,7 @@ $(function() {
     $(".eatem").on("click", function(event) {
       event.preventDefault();
       let id = event.target.value;
-      $.ajax('/api/burger/' + id, {
+      $.ajax('/api/burgers/' + id, {
         type: "PUT"
       }).then(function() {
         location.reload();
