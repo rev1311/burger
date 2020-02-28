@@ -10,7 +10,7 @@ var orm = {
     },
     // not 100% on this one...
     insertOne: function(table, cols, vals, cb) {
-        var queryString = `INSERT INTO ${table} (${cols}, ${vals})`;
+        var queryString = `INSERT INTO ${table} (${vals})`;
         connection.query(queryString, function(err, res) {
             if (err) throw err;
             console.log(res);
@@ -20,8 +20,8 @@ var orm = {
     // this is probably wrong!!
     updateOne: function(table, objColVal, condition, cb) {
         var sqld = objToSql(objColVal);
-        var queryString = `UPDATE ${table} SET ${sqld} WHERE ${condition}`;
-        connection.query(queryString, function(err, res) {
+        var queryString = `UPDATE ${table} SET ${sqld} WHERE ?`;
+        connection.query(queryString, condition, function(err, res) {
             if (err) throw err;
             console.log(res);
             cb(res);

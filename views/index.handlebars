@@ -5,7 +5,7 @@
 <ul>
   {{#each burger}}
     {{#unless devoured}}
-        <div class="burgerText">{{id}}.{{burger_name}}</div>
+        <div class="burgerText">{{id}}.{{burger.name}}</div>
         <button class="eatem" id="{{id}}" value="{{id}}">Devour!</button>
     {{/unless}}
   {{/each}}
@@ -16,7 +16,7 @@
 <ul>
   {{#each burger}}
     {{#if devoured}}
-      <div class="burgerText">{{id}}.{{burger_name}}</div>
+      <div class="burgerText">{{id}}.{{burger.name}}</div>
     {{/if}}
   {{/each}}
 </ul>
@@ -26,7 +26,7 @@
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+    <input type="text" id="burger" name="name">
   </div>
 
   <div class="form-group">

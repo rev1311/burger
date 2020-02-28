@@ -1,8 +1,8 @@
 $(function() {
     $(".create-form").on("submit", function(event) {
       event.preventDefault();
-      let newBurger = { name: $("#burger").val() };
-  
+      let newBurger = { name: $("#burger").val(), devoured: true };
+      console.log(newBurger);
       $.ajax(`/api/burger`, {
         type: "POST",
         data: newBurger
