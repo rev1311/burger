@@ -16,17 +16,17 @@
 <ul>
   {{#each burger}}
     {{#if devoured}}
-      <div class="burgerText">{{id}}.{{burger_name}}</div>
+      <div class="burgerText">{{id}}.{{burger_name}} <button type="submit" class="del">X</button></div>
     {{/if}}
   {{/each}}
 </ul>
 
-<h2>Add a Burger</h2>
+<h2>Add a Burger</h2> 
 <form class="create-form">
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="burger" name="name">
+    <input type="text" id="newburger" name="burger">
   </div>
 
   {{!-- <div class="form-group">
@@ -35,5 +35,5 @@
     <input type="radio" id="devoured" name="devoured" value="0"> Still chewing!
   </div> --}}
 
-  <button type="submit">Add Burger</button>
+  <button type="submit" id="addburger">Add Burger</button>
 </form>
