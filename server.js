@@ -14,7 +14,7 @@ app.set("view engine", "handlebars");
 
 var apiRoutes = require("./controllers/burger_controller.js");
 
-app.use("/", apiRoutes);
+app.use(apiRoutes);
 
 app.listen(PORT, function() {
   console.log(`connected on port ${PORT}`);
