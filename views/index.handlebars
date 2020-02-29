@@ -16,7 +16,7 @@
 <ul>
   {{#each burger}}
     {{#if devoured}}
-      <div class="burgerText">{{id}}.{{burger_name}} <button type="submit" class="del">X</button></div>
+      <div class="burgerText">{{id}}.{{burger_name}} <button type="submit" class="del" id="{{id}}" value="{{id}}">X</button></div>
     {{/if}}
   {{/each}}
 </ul>
