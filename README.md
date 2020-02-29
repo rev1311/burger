@@ -3,8 +3,8 @@ An application that allows a user to add content to a database, while separating
 
 ## Screen Grab 
 
-![site](assets/app_ss.gif)
-GIF of app in action.
+![site](assets/bugerss.PNG)
+Image of functioning app.
 
 ## Built With
 
@@ -18,26 +18,22 @@ GIF of app in action.
 * [handlebars](https://handlebarsjs.com)
 * [MySQL](https://mysql.com)
 
-![site](assets/orms_ss.PNG)
 
 ## Deployed Link
 
 * [Github Repository Page](https://github.com/rev1311/burger)
-* [heroku app page]()
+* [heroku app page](https://mighty-eyrie-08226.herokuapp.com/)
 
 
 ## Authors
 
 * **Michael Partin** 
 
-- [Link to Portfolio Site](https://rev1311.github.io/updated-portfolio/)
+- [Link to Portfolio Site](https://rev1311.github.io/react-portfolio/)
 - [Link to Github](https://github.com/rev1311)
 - [Link to LinkedIn](https://linkedin.com/in/michael-partin)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project. HINT: Just me.
 
 
-## Acknowledgments
-
-* 
 
