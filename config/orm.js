@@ -55,7 +55,7 @@ var orm = {
         queryString += " SET ";
         queryString += objToSql(objColVal);
         queryString += " WHERE ";
-        queryString += condition;
+        queryString += "id=" + condition;
         
         connection.query(queryString, function(err, result) {
           if (err) {
@@ -68,12 +68,12 @@ var orm = {
     deleteOne: function(table, condition, cb) {
       var queryString = "DELETE FROM " + table;
       queryString += " WHERE ";
-      queryString += condition;
+      queryString += "id=" + condition;
 
       console.log(queryString);
 
       connection.query(queryString, function(err, result) {
-          if (err) {
+          if (err) { 
               throw err
           }
           cb(result);
