@@ -1,5 +1,29 @@
 const connection = require('../config/connection.js');
 
+function qMarks(num) {
+    var arr = [];
+    for (var i = 0; i < num; i++) {
+      arr.push("?");
+    }
+    return arr.toString();
+}
+
+function objToSql(ob) {
+    var arr = [];
+    for (var key in ob) {
+      var value = ob[key];
+  
+      if (Object.hasOwnProperty.call(ob, key)) {
+  
+        if (typeof value === "string" && value.indexOf(" ") >= 0) {
+          value = "'" + value + "'";
+        }
+
+        arr.push(key + "=" + value);
+      }
+    } return arr.toString();
+};
+
 var orm = {
     selectAll: function(table, cb) {
         var queryString = `SELECT * FROM ${table}`;
@@ -8,25 +32,38 @@ var orm = {
             cb(res);
         });
     },
-    // not 100% on this one...
+
     insertOne: function(table, cols, vals, cb) {
-        var queryString = `INSERT INTO ${table} (${cols}) VALUES (${vals})`;
-        connection.query(queryString, function(err, res) {
-            if (err) throw err;
-            console.log(res);
-            cb(res);
-        });
-    },
-    // this is probably wrong!!
-    updateOne: function(table, objColVal, condition, cb) {
-        // var sqld = objToSql(objColVal);
-        var queryString = `UPDATE ${table} SET devoured=${objColVal} WHERE id=${id}`;
-        connection.query(queryString, condition, function(err, res) {
-            if (err) throw err;
-            console.log(res);
-            cb(res);
+        var queryString = "INSERT INTO " + table;
+        queryString += " (";
+        queryString += cols;
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += qMarks(vals.length);
+        queryString += ") ";
+    
+        connection.query(queryString, vals, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result); 
+        }); 
+    }, 
+
+    update: function(table, objColVal, condition, cb) {
+        var queryString = "UPDATE " + table;
+        queryString += " SET ";
+        queryString += objToSql(objColVal);
+        queryString += " WHERE ";
+        queryString += condition;
+        
+        connection.query(queryString, function(err, result) {
+          if (err) {
+            throw err;
+          }
+          cb(result);
         });
     }
 };
 
-module.exports = orm
+module.exports = orm; 
