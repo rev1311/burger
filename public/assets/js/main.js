@@ -13,7 +13,8 @@ $(function() {
   
     $(".eatem").on("click", function(event) {
       event.preventDefault();
-      let id = $(this).data("id");
+      let id = event.target.value;
+      console.log(id);
       let newDevState = {
         devoured: 1 
       };
@@ -27,7 +28,7 @@ $(function() {
 
     $(".del").on("click", function(event) {
       event.preventDefault(); 
-      let id = $(this).data("id"); 
+      let id = event.target.value; 
       $.ajax({
         type: "DELETE",
         url: "/api/burgers/" + id
